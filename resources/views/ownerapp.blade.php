@@ -7,8 +7,8 @@
         <title>スーツサイト</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
-    <body class="bg-gray-200">
-        <nav class="p-6 mb-6 bg-white flex justify-between">
+    <body class="bg-gray-200 pb-6">
+        <nav class="p-6 mb-6 bg-white flex justify-between shadow-md">
             <div>
                 スーツサイト
             </div>
