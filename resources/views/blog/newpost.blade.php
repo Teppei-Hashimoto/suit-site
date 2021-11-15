@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-8/12 mx-auto">
         <div class="w-full bg-white p-6 rounded-lg">
-            <form action="{{ route('newpost') }}" method="post" class="flex flex-col">
+            <form action="{{ route('posts.store') }}" method="post" class="flex flex-col">
                 @csrf
                 <label for="title" class="font-semibold text-lg">
                     記事タイトル

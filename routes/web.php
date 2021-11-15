@@ -4,13 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('auth.login');
 });
-
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
@@ -20,7 +18,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/posts' ,[BlogController::class, 'index'])->name('posts');
-
-Route::get('/newpost', [PostController::class, 'index'])->name('newpost');
-Route::post('/newpost', [PostController::class, 'store']);
+Route::get('/posts' ,[PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
