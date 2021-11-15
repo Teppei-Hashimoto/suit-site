@@ -22,7 +22,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('blog.newpost');
+        return view('blog.create');
     }
 
     public function store(Request $request)
@@ -37,10 +37,29 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    // public function edit($id)
-    // {
-    //
-    // }
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('blog.edit', [
+            'post' => $post
+        ]);
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $this->validate($request,[
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        return redirect()->route('posts.index');
+
+    }
 
     public function destroy(Post $post)
     {

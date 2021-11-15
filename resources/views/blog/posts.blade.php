@@ -16,7 +16,7 @@
                             <p class="text-base font-bold text-gray-800">{{ $post->title }}</p>
                             <p class="text-xs text-gray-400">{{ $post->updated_at }}</p>
                         </div>
-                        <a href="" class="bg-gray-400 py-1 px-4 text-white rounded-full text-sm">
+                        <a href="{{ route('posts.edit', $post->id) }}" class="bg-gray-400 py-1 px-4 text-white rounded-full text-sm">
                             編 集
                         </a>
                         <form action="{{ route('posts.destroy', $post) }}" method="post">
