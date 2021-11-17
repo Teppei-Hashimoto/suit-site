@@ -1,4 +1,4 @@
-@extends('ownerapp')
+@extends('layouts.ownerapp')
 
 @section('content')
     <div class="w-8/12 mx-auto">

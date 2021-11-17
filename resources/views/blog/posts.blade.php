@@ -1,4 +1,4 @@
-@extends('ownerapp')
+@extends('layouts.ownerapp')
 
 @section('content')
     <div class="w-8/12 mx-auto">
@@ -29,7 +29,7 @@
                     </div>
                 @endforeach
             @else
-                <p>記事が投稿されていません</p>
+                <p class="mb-3">記事が投稿されていません</p>
             @endif
         </div>
     </div>
