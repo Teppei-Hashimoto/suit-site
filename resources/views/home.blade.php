@@ -14,7 +14,7 @@
                 </a>
             @endforeach
         @else
-            <p>記事が投稿されていません</p>
+            <p>まだ記事が投稿されていません</p>
         @endif
     </div>
 @endsection

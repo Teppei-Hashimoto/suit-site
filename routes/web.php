@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\QuestionnaireController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -26,3 +27,5 @@ Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edi
 Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
 
 Route::get('/articles/{id}',[ArticleController::class, 'show'])->name('articles.show');
+
+Route::get('/questionnaires/create', [QuestionnaireController::class, 'create'])->name('questionnaires.create');
