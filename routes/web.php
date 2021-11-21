@@ -29,3 +29,4 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.upda
 Route::get('/articles/{id}',[ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('/questionnaires/create', [QuestionnaireController::class, 'create'])->name('questionnaires.create');
+Route::post('/questionnaires', [QuestionnaireController::class, 'store'])->name('questionnaires.store');

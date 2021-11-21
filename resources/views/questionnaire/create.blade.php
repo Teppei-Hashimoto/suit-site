@@ -1,15 +1,16 @@
 @extends('layouts.ownerapp')
 
 @section('content')
-    <div class="w-8/12 mx-auto">
-        <form action="" method="post">
+    <div class="w-8/12 mx-auto mb-6">
+        <form action="{{ route('questionnaires.store') }}" method="post">
+            @csrf
             <div class="w-full bg-white p-6 mt-6 rounded-lg flex flex-col">
                 <label for="title">アンケートの題名</label>
                 <input type="text" name="title" id="title" class="textform text-xl mb-6 px-4 py-3">
                 <label for="sammary">アンケートの概要</label>
                 <textarea name="sammary" id="sammary" cols="30" rows="2" class="text-gray-700 px-4 py-3 rounded border border-gray-200 bg-gray-200 resize-y focus:outline-none focus:bg-white"></textarea>
             </div>
-            <div id="questions-list">
+            <div id="questions-list" class="mb-6">
                 <div class="w-full bg-white p-6 mt-6 rounded-lg flex flex-col">
                     <label for="q1">記述式の質問</label>
                     <input type="text" name="q1" id="q1" class="q-title textform text-xl mb-6 px-4 py-3">
@@ -60,6 +61,10 @@
                     </div>
                 </div>
             </div>
+
+            <button type="submit" class="w-1/4 bg-blue-400 text-white px-4 py-2 rounded-full font-bold shadow-md">
+                作成
+            </button>
         </form>
     </div>
 @endsection

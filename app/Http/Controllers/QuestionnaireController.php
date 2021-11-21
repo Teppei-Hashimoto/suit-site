@@ -10,4 +10,11 @@ class QuestionnaireController extends Controller
     {
         return view('questionnaire.create');
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+
+        return redirect()->route('questionnaire.create');
+    }
 }
