@@ -84,7 +84,7 @@ class AnswerController extends Controller
                 break;
             }
         }
-        return view();
+        return redirect()->route('questionnaires.index');
     }
 
     /**
