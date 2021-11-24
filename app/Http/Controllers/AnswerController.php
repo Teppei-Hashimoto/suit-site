@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Questionnaire\Questionnaire;
 use Illuminate\Http\Request;
+use App\Models\Questionnaire\Questionnaire;
+use App\Models\Questionnaire\Question_type;
 use App\Models\Questionnaire\A_check_box;
 use App\Models\Questionnaire\A_free_form;
 use App\Models\Questionnaire\A_radio_button;
