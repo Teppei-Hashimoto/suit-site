@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->foreignId('questionnaire_id')->constrained();
             $table->unsignedInteger('question_type_id');
             $table->string('question_content');
-            $table->boolean('question_required')->default(false);
+            $table->boolean('question_required');
         });
     }
 

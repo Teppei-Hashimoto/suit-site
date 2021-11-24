@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionnairesTable extends Migration
+class CreateACheckBoxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateQuestionnairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionnaires', function (Blueprint $table) {
+        Schema::create('a_check_boxes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('questionnaire_title');
-            $table->text('questionnaire_summary')->nullable();
-            $table->timestamps();
+            $table->foreignId('answer_id')->constrained();
+            $table->foreignId('question_id')->constrained();
+            $table->foreignId('q_check_box_id')->constrained();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateQuestionnairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionnaires');
+        Schema::dropIfExists('a_check_boxes');
     }
 }

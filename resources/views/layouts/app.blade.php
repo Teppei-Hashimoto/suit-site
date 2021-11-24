@@ -9,11 +9,13 @@
         <link rel="stylesheet" href="{{ mix('css/style.css') }}">
     </head>
     <body class="bg-gray-200 pb-6">
-        <nav class="p-6 mb-6 bg-white flex justify-between shadow-md">
-            <div>
+        <nav class="p-6 mb-6 bg-white flex justify-between items-center shadow-md">
+            <a href="{{ route('home') }}" class="text-xl font-bold">
                 スーツサイト
-            </div>
+            </a>
+            <a href="{{ route('questionnaires.index') }}">アンケート一覧</a>
         </nav>
         @yield('content')
+        @yield('js')
     </body>
 </html>

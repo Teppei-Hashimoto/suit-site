@@ -17,15 +17,19 @@ class Question_typesTableSeeder extends Seeder
         Question_type::insert([
             [
             'question_type_name'=>'radio_button'
-        ],[
-            'question_type_name'=>'free_form'
-        ],[
-            'question_type_name'=>'check_box'
-        ],[
-            'question_type_name'=>'pull_down'
-        ],[
-            'question_type_name'=>'date'
-        ],
-    ]);
+            ],
+            [
+                'question_type_name'=>'check_box'
+            ],
+            [
+                'question_type_name'=>'pull_down'
+            ],
+            [
+                'question_type_name'=>'free_form'
+            ],
+            [
+                'question_type_name'=>'date'
+            ],
+        ]);
     }
 }

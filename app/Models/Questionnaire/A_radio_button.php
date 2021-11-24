@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Q_check_box extends Model
+class A_radio_button extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'q_check_box_text'
+        'question_id',
+        'q_radio_button_id',
+        'answer_id'
     ];
 
-    public function question(){
-        return $this->belongsTo(Question::class);
-    }
 }

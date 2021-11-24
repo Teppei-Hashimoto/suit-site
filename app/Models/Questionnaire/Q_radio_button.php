@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Q_radio_button extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable =[
         'q_radio_button_text'

@@ -9,14 +9,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Questionnaire extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable =[
         'questionnaire_title',
-        'questionnaire_content'
+        'questionnaire_summary'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
     }
 }
