@@ -13,8 +13,12 @@ class Q_radio_button extends Model
     protected $fillable =[
         'q_radio_button_text'
     ];
+    public $timestamps = false;
 
     public function question(){
         return $this->belongsTo(Question::class);
+    }
+    public function a_radio_buttons(){
+        return $this->hasMany(A_radio_button::class);
     }
 }

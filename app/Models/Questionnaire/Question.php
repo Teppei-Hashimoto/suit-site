@@ -23,15 +23,24 @@ class Question extends Model
     public function questionnaire(){
         return $this->belongsTo(Questionnaire::class);
     }
-
+    
     public function q_check_boxes(){
         return $this->hasMany(Q_check_box::class);
-    }
-    public function q_pull_downs(){
-        return $this->hasMany(Q_pull_down::class);
     }
     public function q_radio_buttons(){
         return $this->hasMany(Q_radio_button::class);
     }
+
+
+    public function a_check_boxes(){
+        return $this->hasMany(A_check_box::class);
+    }
+    public function a_radio_buttons(){
+        return $this->hasMany(A_radio_button::class);
+    }
+    public function a_free_forms(){
+        return $this->hasMany(A_free_form::class);
+    }
+
 
 }

@@ -83,4 +83,15 @@ class QuestionnaireController extends Controller
 
         return redirect()->route('questionnaires.info');
     }
+
+    public function show($id)
+    {
+        $questionnaire = Questionnaire::with(['questions' => function ($query){
+            $query->with(['q_radio_buttons', 'q_check_boxes', 'question_type', 'a_radio_buttons', 'a_check_boxes', 'a_free_forms']);
+        }], 'answers')->find($id);
+
+        return view('questionnaire.result', [
+            'questionnaire' => $questionnaire
+        ]);
+    }
 }

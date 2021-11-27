@@ -13,7 +13,17 @@ class A_radio_button extends Model
     protected $fillable =[
         'question_id',
         'q_radio_button_id',
-        'answer_id'
     ];
+    public $timestamps = false;
+
+    public function answer(){
+        return $this->belongsTo(Answer::class);
+    }
+    public function question(){
+        return $this->belongsTo(Question::class);
+    }
+    public function q_radio_button(){
+        return $this->belongsTo(Q_radio_button::class);
+    }
 
 }

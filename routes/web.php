@@ -32,6 +32,7 @@ Route::get('/articles/{id}',[ArticleController::class, 'show'])->name('articles.
 Route::get('/questionnaires/info', [QuestionnaireController::class, 'index'])->name('questionnaires.info');
 Route::get('/questionnaires/create', [QuestionnaireController::class, 'create'])->name('questionnaires.create');
 Route::post('/questionnaires', [QuestionnaireController::class, 'store'])->name('questionnaires.store');
+Route::get('/questionnaires/info/{id}', [QuestionnaireController::class, 'show'])->name('questionnaires.show');
 
 Route::get('/questionnaires', [AnswerController::class, 'index'])->name('questionnaires.index');
 Route::get('/questionnaires/answer/{id}', [AnswerController::class, 'create'])->name('answer.create');

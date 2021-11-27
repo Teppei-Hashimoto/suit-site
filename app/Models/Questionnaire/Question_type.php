@@ -13,8 +13,10 @@ class Question_type extends Model
     protected $fillable =[
         //
     ];
+    public $timestamps = false;
 
     public function questions(){
         return $this->hasMany(Question::class);
     }
+
 }

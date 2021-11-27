@@ -15,5 +15,12 @@ class A_free_form extends Model
         'a_free_form_text',
         'answer_id'
     ];
+    public $timestamps = false;
 
+    public function answer(){
+        return $this->belongsTo(Answer::class);
+    }
+    public function question(){
+        return $this->belongsTo(Question::class);
+    }
 }

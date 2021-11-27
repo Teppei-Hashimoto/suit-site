@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Q_pull_down extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable =[
         'q_pull_down_text'
     ];
+    public $timestamps = false;
 
     public function question(){
         return $this->belongsTo(Question::class);
