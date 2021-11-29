@@ -37,3 +37,4 @@ Route::get('/questionnaires/info/{id}', [QuestionnaireController::class, 'show']
 Route::get('/questionnaires', [AnswerController::class, 'index'])->name('questionnaires.index');
 Route::get('/questionnaires/answer/{id}', [AnswerController::class, 'create'])->name('answer.create');
 Route::post('/questionnaires/answer', [AnswerController::class, 'store'])->name('answer.store');
+Route::get('/questionnaires/submitted', [AnswerController::class, 'submitted'])->name('answer.submitted');

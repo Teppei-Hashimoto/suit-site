@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="w-8/12 mx-auto mb-6">
-        <form action="{{ route('questionnaires.store') }}" method="post">
+        <form action="{{ route('questionnaires.store') }}" method="post" onsubmit="return false;">
             @csrf
             <div class="w-full bg-white p-6 mt-6 mb-12 rounded-lg flex flex-col">
                 <label for="title" class="text-xl font-bold">アンケートの題名</label>

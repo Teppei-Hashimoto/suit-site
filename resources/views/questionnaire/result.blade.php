@@ -12,7 +12,10 @@
         </div>
         <div class="w-full bg-white p-6 mt-6 mb-12 rounded-lg flex flex-col">
             <div>アンケート集計結果</div>
-            <div class="text-gray-500">回答者数 {{ $questionnaire->answers->count() }}</div>
+            @php
+                $answer_count = $questionnaire->answers->count();
+            @endphp
+            <div class="text-gray-500">回答者数 {{ $answer_count }}</div>
         </div>
         <div class="felx flex-col mb-12">
             @foreach ($questionnaire->questions as $question)
@@ -21,13 +24,17 @@
                         @case("free_form")
                             <div class="text-gray-500">記述式</div>
                             <h2 class="text-lg font-bold mb-4">{{ $question->question_content }}</h2>
-                            <ul>
-                                @foreach ($question->a_free_forms as $a_free_form)
-                                    <li>
-                                        <p class="border-b-2 border-gray-300 pb-1 mb-3">{{ $a_free_form->a_free_form_text }}</p>
-                                    </li>
-                                @endforeach
-                            </ul>
+                            @if ($answer_count > 0)
+                                <ul>
+                                    @foreach ($question->a_free_forms as $a_free_form)
+                                        <li>
+                                            <p class="border-b-2 border-gray-300 pb-1 mb-3">{{ $a_free_form->a_free_form_text }}</p>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>回答がありません</p>
+                            @endif
                             @break
                         @case("radio_button")
                             @php
@@ -51,7 +58,7 @@
                                         <tr>
                                             <td class="border px-4 py-2">{{ $q_radio_button->q_radio_button_text }}</td>
                                             <td class="border px-4 py-2">{{ $select_count }}</td>
-                                            <td class="border px-4 py-2">{{ round($select_count / $total_count * 100) }}%</td>
+                                            <td class="border px-4 py-2">{{ $answer_count ? round($select_count / $total_count * 100) . '%' : '-' }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

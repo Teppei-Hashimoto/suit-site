@@ -10,7 +10,7 @@
             <h1 class="text-xl font-bold mb-4">{{ $questionnaire->questionnaire_title }}</h1>
             <p class="text-sm text-gray-500">{{ $questionnaire->questionnaire_summary }}</p>
         </div>
-        <form action="{{ route('answer.store', ['questionnaire' => $questionnaire]) }}" method="post">
+        <form action="{{ route('answer.store') }}" method="post" onsubmit="return false;">
             @csrf
             <input type="hidden" name="questionnaire_id" value="{{ $questionnaire->id }}">
             <div id="question-list" class="felx flex-col mb-12">

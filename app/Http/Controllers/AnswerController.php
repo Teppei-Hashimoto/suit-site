@@ -60,26 +60,11 @@ class AnswerController extends Controller
                 break;
             }
         }
-        return redirect()->route('questionnaires.index');
+        return redirect()->route('answer.submitted');
     }
 
-    public function show($id)
+    public function submitted()
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return view('questionnaire.submitted');
     }
 }

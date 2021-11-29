@@ -14,7 +14,7 @@ class QuestionnaireController extends Controller
     public function __construct()
     {
         // 編集が必要
-        $this->middleware(['auth'])->only(['store']);
+        $this->middleware(['auth'])->only(['index', 'create', 'store', 'show']);
     }
 
     public function index()
@@ -89,6 +89,7 @@ class QuestionnaireController extends Controller
         $questionnaire = Questionnaire::with(['questions' => function ($query){
             $query->with(['q_radio_buttons', 'q_check_boxes', 'question_type', 'a_radio_buttons', 'a_check_boxes', 'a_free_forms']);
         }], 'answers')->find($id);
+        // dd($questionnaire->answers->count());
 
         return view('questionnaire.result', [
             'questionnaire' => $questionnaire

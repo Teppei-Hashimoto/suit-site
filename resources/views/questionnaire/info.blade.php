@@ -15,7 +15,7 @@
         <div class="text-xl font-bold mb-6">アンケート管理</div>
         <ul class="flex flex-col">
             @foreach ($questionnaires as $questionnaire)
-                <a href="" class="mb-6">
+                <a href="{{ route('questionnaires.show', $questionnaire->id) }}" class="mb-6">
                     <li class="bg-white rounded-lg p-6">
                         <div class="text-lg font-bold">{{ $questionnaire->questionnaire_title }}</div>
                         <div class="text-gray-400 text-sm">作成日：{{ $questionnaire->created_at }}</div>
