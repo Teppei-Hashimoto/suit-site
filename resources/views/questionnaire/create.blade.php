@@ -10,11 +10,11 @@
             @csrf
             <div class="w-full bg-white p-6 mt-6 mb-12 rounded-lg flex flex-col">
                 <label for="title" class="text-xl font-bold">アンケートの題名</label>
-                <input type="text" name="title" id="title" class="textform text-xl mb-6 px-4 py-3">
+                <input type="text" name="title" id="title" class="textform text-xl mb-6 px-4 py-3" required>
                 <label for="summary">アンケートの概要</label>
-                <textarea name="summary" id="summary" cols="30" rows="2" class="text-gray-700 px-4 py-3 rounded border border-gray-200 bg-gray-200 resize-y focus:outline-none focus:bg-white"></textarea>
+                <textarea name="summary" id="summary" cols="30" rows="2" class="text-gray-700 px-4 py-3 rounded border border-gray-200 bg-gray-200 resize-y focus:outline-none focus:bg-white" required></textarea>
             </div>
-            <input type="hidden" name="q_num" id="q_num" value="1">
+            <input type="hidden" name="q_num" id="q-num" value="1">
             <div id="question-list" class="mb-6"></div>
 
             <div class="flex flex-row items-center mb-8">
@@ -32,7 +32,7 @@
 
             <div class="flex flex-row">
                 <div class="flex-grow"></div>
-                <button type="button" class="inline-block bg-blue-400 text-white px-8 py-2 rounded-full font-bold shadow-md" onclick="submit();">
+                <button type="button" id="submit-button" class="inline-block bg-blue-400 text-white px-8 py-2 rounded-full font-bold shadow-md opacity-50 cursor-not-allowed" onclick="submit();" disabled>
                     作成
                 </button>
             </div>

@@ -18,6 +18,8 @@ let deleteChoiceElem = (e) => {
     let choiceNum = ul.querySelector(".choice-num");
     choiceNum.value = choiceList.length;
     numberingChoiceList(choiceList, questionNo, questionType);
+    // バリデーション
+    validateAll();
 };
 
 // 追加ボタンに設定
@@ -31,7 +33,10 @@ let addChoiceElem = (e) => {
     let choiceNum = e.parentElement.querySelector(".choice-num");
     choiceNum.value = choiceList.length;
 
+    // 採番
     numberingChoiceList(choiceList, questionNo, questionType);
+    // バリデーション
+    validateAll();
 };
 
 // 選択肢要素の作成
@@ -58,6 +63,10 @@ let createChoiceElem = (e) => {
     let inputText = document.createElement("input");
     inputText.type = "text";
     inputText.classList.add("choice-text", "flex-grow", "textform");
+    inputText.required = true;
+    inputText.addEventListener("keyup", (e) => {
+        validateAll();
+    });
 
     let deleteButton = document.createElement("button");
     deleteButton.type = "button";

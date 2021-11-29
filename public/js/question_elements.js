@@ -1,5 +1,8 @@
+const questionnaireTitle = document.getElementById("title");
+const questionnaireSummary = document.getElementById("summary");
 const questionList = document.getElementById("question-list");
-const questionNum = document.getElementById("q_num");
+const questionNum = document.getElementById("q-num");
+const submitButton = document.getElementById("submit-button");
 
 // 質問の削除ボタンに設定
 // 質問の削除
@@ -7,6 +10,8 @@ let deleteQuestionElem = (e) => {
     e.parentElement.parentElement.remove();
     // 採番
     numberingQuestionList();
+    // バリデーション
+    validateAll();
 };
 
 // 質問の追加ボタンに設定
@@ -38,6 +43,10 @@ let addQuestionElem = (questionTypeVal) => {
         "px-4",
         "py-3"
     );
+    title.required = true;
+    title.addEventListener("keyup", (e) => {
+        validateAll();
+    });
 
     let questionType = document.createElement("input");
     container.appendChild(questionType);
@@ -127,6 +136,8 @@ let addQuestionElem = (questionTypeVal) => {
 
     // 採番
     numberingQuestionList();
+    // バリデーション
+    validateAll();
 };
 
 // 質問全体の採番
@@ -169,6 +180,53 @@ let numberingQuestionList = () => {
             choiceNum.name = `${questionNo}_choice_num`;
 
             numberingChoiceList(choiceList, questionNo, questionTypeVal);
+        }
+    }
+};
+
+// バリデーション
+questionnaireTitle.addEventListener("keyup", (e) => {
+    validateAll();
+});
+
+questionnaireSummary.addEventListener("keyup", (e) => {
+    validateAll();
+});
+
+let filledCheck = (elems) => {
+    let result = true;
+    if (elems.length) {
+        elems.forEach((element) => {
+            if (!element.value) {
+                result = false;
+            }
+        });
+    }
+    return result;
+};
+
+let validateAll = () => {
+    let questionTitleList = document.querySelectorAll(".q-title");
+    let choiceList = document.querySelectorAll(".choice-text");
+    if (
+        questionnaireTitle.value &&
+        questionnaireSummary.value &&
+        filledCheck(questionTitleList) &&
+        filledCheck(choiceList)
+    ) {
+        // submit-button のdisabled制御
+        submitButton.disabled = false;
+        if (
+            submitButton.classList.contains("opacity-50", "cursor-not-allowed")
+        ) {
+            submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+    } else {
+        submitButton.disabled = true;
+        if (
+            !submitButton.classList.contains("opacity-50", "cursor-not-allowed")
+        ) {
+            submitButton.classList.add("opacity-50", "cursor-not-allowed");
         }
     }
 };
